@@ -30,7 +30,7 @@ body {
     height: 100%;
 }
 
-#body .row {
+#app .row:first-child {
     width: 100%;
 }
 
@@ -270,8 +270,13 @@ header {
 }
 
 .mess {
-    height: 50px;
     border-radius: 10px;
+    display: flex;
+    align-items: center;
+    max-width: 40%;
+    min-width: 20%;
+    padding: 13px;
+    position: relative;
 }
 
 .mio {
@@ -282,10 +287,18 @@ header {
     background: white;
 }
 
-.mess1 {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-items: center;
+.date1 {
+    position: absolute;
+    font-size: 10px;
+    bottom: 0%;
+    right: 4%;
+    color: #bababa;
+}
+
+.date2 {
+    position: absolute;
+    font-size: 10px;
+    bottom: 0%;
+    left: 4%;
+    color: #bababa;
 }
