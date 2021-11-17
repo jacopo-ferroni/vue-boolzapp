@@ -163,7 +163,6 @@ body {
 
 .contact2 {
     position: absolute;
-    overflow-y: auto;
     width: 90%;
 }
 
@@ -245,6 +244,13 @@ header {
 .chat-area {
     height: 100%;
     background-image: url(./assets-boolzapp/img/mine.jpg);
+}
+
+.chat-area2 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow-y: scroll;
 }
 
 .write-space {
