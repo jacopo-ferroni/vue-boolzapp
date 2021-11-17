@@ -282,14 +282,17 @@ header {
     min-width: 20%;
     padding: 13px;
     position: relative;
+    margin: 5px 0;
 }
 
 .mio {
     background: #ddfabf;
+    align-self: flex-end;
 }
 
 .suo {
     background: white;
+    align-self: flex-start;
 }
 
 .date1 {

@@ -71,7 +71,7 @@
                     <div class="contact2">
 
                         <ul>
-                            <li class="user" v-for="contact in contacts">
+                            <li class="user" v-for="(contact, index) in contacts" @click="selectContact(index)">
                                 <div class="user-img">
                                     <img :src="`./assets-boolzapp/img/avatar${contact.avatar}.jpg`" alt="">
                                 </div>
@@ -89,9 +89,10 @@
             <div class="col-8 chat-zone">
                 <header>
                     <div class="img-profile-container">
-                        <img src="./assets-boolzapp/img/avatar_1.jpg" alt="">
+                        <img :src="`./assets-boolzapp/img/avatar${contacts[activeUser].avatar}.jpg`" alt="">
                         <div class="last-access">
-                            <span class="name">{{contacts[0].name}}</span>
+                            <span class="name">{{contacts[activeUser].name}}</span>
+                            <!-- LAST ACCESS -->
                             <span class="second">Ultimo accesso oggi alle 10:35</span>
                         </div>
                     </div>
@@ -104,28 +105,19 @@
                 </header>
 
                 <div class="chat-area d-flex flex-column p-4">
-                    <div class="mess mio align-self-end">
-                        mio messaggio
+                    <div class="mess" v-for="message in contacts[activeUser].messages" :class="{mio : message.status === `sent`,
+                    suo : message.status === `received`}">
+                        {{message.text}}
                         <div class="date2">
-                            10/01/2021 15:50:00
+                            {{message.date}}
                         </div>
                     </div>
-                    <div class="mess suo align-self-start">
-                        suo messaggio
-                        <div class="date1">
-                            10/01/2021 15:50:00
-                        </div>
-                    </div>
-                    
-                    
-                    
-                    
                 </div>
 
                 <div class="write-space">
                     <div class="row g-0">
                         <div class="col-1 write"><i class="far fa-smile"></i></div>
-                        <div class="col-10 write"><input type="text" placeholder="Scrivi un messaggio"></div>
+                        <div class="col-10 write"><input type="text" placeholder="Scrivi un messaggio" v-model="message" @keyup.enter="sendMessage"></div>
                         <div class="col-1 write"><i class="fas fa-microphone"></i></div>
                       </div>
 

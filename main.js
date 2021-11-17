@@ -90,7 +90,31 @@ const app = new Vue({
                     }
                 ],
             },
-        ]
+        ],
+
+        activeUser : 0,
+
+        message : ``,
         
+    },
+
+    methods : {
+        selectContact(indice) {
+            this.activeUser = indice;
+        },
+
+        sendMessage () {
+            console.log(this.message);
+
+            this.contacts[this.activeUser].messages.push({
+                date: '10/01/2020 15:30:55',
+                text : this.message,
+                status : `sent`,
+            });
+
+            console.table(this.contacts[this.activeUser].messages);
+
+            this.message = ``;
+        },
     }
-})
+});
