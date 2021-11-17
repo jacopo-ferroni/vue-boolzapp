@@ -92,6 +92,8 @@ const app = new Vue({
             },
         ],
 
+        array: [`va bene`,`ok`,`certo`,`non lo so`,`probabilmente`,`forse`,`wuuf`,`direttamente dall'NCC maggggico`,`ho spacato tutto fratellì`,`Tu non sei Jacopo il Ginecologo?`],
+
         activeUser : 0,
 
         message : ``,
@@ -112,9 +114,33 @@ const app = new Vue({
                 status : `sent`,
             });
 
-            console.table(this.contacts[this.activeUser].messages);
+            setTimeout(this.createchat, 1000);
 
             this.message = ``;
+
         },
+
+        random () {
+
+            console.log(this.array.lenght);
+
+           const random = Math.floor(Math.random() * this.array.lenght - 1);
+
+           console.log(random);
+    
+           return random;
+        },
+
+        createchat () {
+            
+            console.log(this.array[this.random]);
+            
+            this.contacts[this.activeUser].messages.push({
+                date: '10/01/2020 15:30:55',
+                text : `ok`,
+                status : `received`,
+            });
+        },
+
     }
 });
