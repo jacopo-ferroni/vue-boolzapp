@@ -3,6 +3,10 @@ console.log(Vue);
 const app = new Vue({
     el : `#app`,
     data : {
+        io : {
+            name: `Doctor Jacopo Ferroni`,
+            avatar: `./assets-boolzapp/img/jacopoMontagna.JPG`,
+        },
         contacts: [
             {
                 name: 'Michele',
