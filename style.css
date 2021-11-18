@@ -30,6 +30,10 @@ body {
     height: 100%;
 }
 
+#app {
+    position: relative;
+}
+
 #app .row:first-child {
     width: 100%;
 }
@@ -390,4 +394,44 @@ header {
 
 .visualizzato i {
     color: cornflowerblue;
+}
+
+.user-info {
+    position: absolute;
+    top: 50%;  /* position the top  edge of the element at the middle of the parent */
+    left: 50%; /* position the left edge of the element at the middle of the parent */
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, .5);
+}
+
+.img-user-info {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.img-user-info img {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.aa {
+    margin: 5px;
+}
+
+.user-info1 {
+    position: relative;
+    padding: 50px;
+}
+
+.user-info1 i{
+    position: absolute;
+    top: 3%;
+    right: 4%;
+    color: red;
+    cursor: pointer;
 }

@@ -6,6 +6,9 @@ const app = new Vue({
         io : {
             name: `Doctor Jacopo Ferroni`,
             avatar: `./assets-boolzapp/img/jacopoMontagna.JPG`,
+            name1: `Jacopo`,
+            surname1: `Ferroni`,
+            role: `Doctor`,
         },
         contacts: [
             {
@@ -105,6 +108,8 @@ const app = new Vue({
         nClick : 1,
 
         close : 0,
+
+        close1 : 0,
     },
 
     methods : {
@@ -169,6 +174,14 @@ const app = new Vue({
         deleteMess (indice) {
             this.contacts[this.activeUser].messages.splice(indice, 1);
             this.nClick++;
-        }
+        },
+
+        showUser () {
+            this.close1 = 1;
+        },
+
+        closeUser () {
+            this.close1 = 0;
+        },
     }
 });

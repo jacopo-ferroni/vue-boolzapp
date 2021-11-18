@@ -32,7 +32,7 @@
                 <div class="utente">
                         <!-- imagine profilo -->
                         <div class="img-profile-container">
-                            <img :src="io.avatar" alt="">
+                            <img :src="io.avatar" alt="" @click="showUser">
                             <span class="name">{{io.name}}</span>
                         </div>
 
@@ -153,6 +153,24 @@
                     </div>
 
                 </div>
+            </div>
+        </div>
+
+        <div class="user-info" v-show="close1 == 1">
+            <div class="user-info1">
+                <div class="img-user-info">
+                    <img :src="io.avatar" alt="">
+                </div>
+                <div class="name1 aa">
+                    Nome: {{io.name1}}
+                </div>
+                <div class="surname1 aa">
+                    Cognome: {{io.surname1}}
+                </div>
+                <div class="role aa">
+                    Ruolo: {{io.role}}
+                </div>
+                <i class="fas fa-times" @click="closeUser"></i>
             </div>
         </div>
 
