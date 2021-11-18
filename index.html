@@ -106,15 +106,40 @@
 
                 <div class="chat-area">
                     <div class="chat-area2 d-flex flex-column p-4">
-                        <div class="mess" v-for="message in contacts[activeUser].messages" :class="{mio : message.status === `sent`,
+                        <div class="mess" v-for="(message, index) in contacts[activeUser].messages" :class="{mio : message.status === `sent`,
                         suo : message.status === `received`}">
                             {{message.text}}
                             <div class="date1">
                                 {{message.date}}
                             </div>
                             <div class="messinfo">
-                                <i class="fas fa-chevron-down"></i>
+                                <i class="fas fa-chevron-down" @click="infos(index)"></i>
                             </div>
+
+                            <div class="arrow" v-show="nClick % 2 == 0 && index == info">
+                                <div class="information info-mess" @click="showInfo">
+                                    Message Info
+                                </div>
+                                <hr>
+                                <div class="information delete-mess" @click="deleteMess(index)">
+                                    Delete message
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="show-info" v-show="close == 1" >
+                        <div class="contenitore-info">
+                            <div class="consegnato">
+                                Il messaggio è stato consegnato
+                                <i class="far fa-paper-plane"></i>
+                            </div>
+                            <div class="visualizzato">
+                                Il messaggio è stato visualizzato 
+                                <i class="fas fa-check-double"></i>
+                            </div>
+                            <i class="close fas fa-times" @click="closeInfo"></i>
                         </div>
                     </div>
                 </div>

@@ -99,8 +99,12 @@ const app = new Vue({
         message : ``,
 
         name : ``,
-        
-        names : [],
+
+        info : 0,
+
+        nClick : 1,
+
+        close : 0,
     },
 
     methods : {
@@ -147,5 +151,24 @@ const app = new Vue({
             }
         },
 
+        infos (indice) {
+            this.nClick++;
+            this.info = indice
+        },
+
+        showInfo () {
+            this.close = 1;
+            this.nClick++;
+        },
+
+        closeInfo () {
+            this.close = 0;
+            this.nClick++;
+        },
+
+        deleteMess (indice) {
+            this.contacts[this.activeUser].messages.splice(indice, 1);
+            this.nClick++;
+        }
     }
 });
