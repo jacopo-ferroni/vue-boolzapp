@@ -97,7 +97,10 @@ const app = new Vue({
         activeUser : 0,
 
         message : ``,
+
+        name : ``,
         
+        names : [],
     },
 
     methods : {
@@ -109,7 +112,7 @@ const app = new Vue({
             console.log(this.message);
 
             this.contacts[this.activeUser].messages.push({
-                date: '10/01/2020 15:30:55',
+                date: dayjs().format(`DD/MM/YYYY HH:mm:ss`),
                 text : this.message,
                 status : `sent`,
             });
@@ -120,27 +123,28 @@ const app = new Vue({
 
         },
 
-        random () {
-
-            console.log(this.array.lenght);
-
-           const random = Math.floor(Math.random() * this.array.lenght - 1);
-
-           console.log(random);
-    
-           return random;
-        },
-
         createchat () {
-            
-            /* perchè non funziona il random?? */
-            console.log(this.array[this.random]);
             
             this.contacts[this.activeUser].messages.push({
                 date : dayjs().format(`DD/MM/YYYY HH:mm:ss`),
                 text : `ok`,
                 status : `received`,
             });
+        },
+
+        ricerca () {
+            console.log(this.name);
+
+            for(let i = 0; i < this.contacts.length; i++) {
+
+                if(this.contacts[i].name.toLowerCase().includes(this.name.toLowerCase())) {
+                    this.contacts[i].visible = true;
+                }
+                else {
+                    this.contacts[i].visible = false;
+                }
+
+            }
         },
 
     }
